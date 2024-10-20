@@ -1,0 +1,107 @@
+Design DB model for Guvi Zen class
+
+1. Students
+student_id (Primary Key)
+first_name
+last_name
+email
+phone_number
+enrollment_date
+status (active, graduated, etc.)
+class_id (Foreign Key to Class)
+2. Courses
+course_id (Primary Key)
+course_name
+description
+start_date
+end_date
+mentor_id (Foreign Key to Mentor)
+total_chapters
+3. Mentors
+mentor_id (Primary Key)
+first_name
+last_name
+email
+phone_number
+specialization
+4. Classes
+class_id (Primary Key)
+class_name
+course_id (Foreign Key to Courses)
+start_date
+end_date
+5. Student Attendance
+attendance_id (Primary Key)
+student_id (Foreign Key to Students)
+class_id (Foreign Key to Classes)
+date
+status (Present, Absent)
+6. Tasks
+task_id (Primary Key)
+task_name
+description
+assigned_date
+due_date
+course_id (Foreign Key to Courses)
+class_id (Foreign Key to Classes)
+7. Task Submissions
+submission_id (Primary Key)
+student_id (Foreign Key to Students)
+task_id (Foreign Key to Tasks)
+submission_date
+task_mark
+status (Pending, Submitted, Graded)
+8. Mock Assessments
+assessment_id (Primary Key)
+chapter_number
+course_id (Foreign Key to Courses)
+total_marks
+9. Mock Test Results
+test_result_id (Primary Key)
+student_id (Foreign Key to Students)
+assessment_id (Foreign Key to Mock Assessments)
+marks_obtained
+date_of_test
+10. Queries
+query_id (Primary Key)
+student_id (Foreign Key to Students)
+mentor_id (Foreign Key to Mentors)
+query_text
+query_date
+status (Resolved, Unresolved)
+11. Capstone Projects
+project_id (Primary Key)
+project_name
+description
+student_id (Foreign Key to Students)
+submission_date
+mentor_feedback
+12. Leave Applications
+leave_id (Primary Key)
+student_id (Foreign Key to Students)
+class_id (Foreign Key to Classes)
+leave_start_date
+leave_end_date
+reason
+status (Approved, Rejected, Pending)
+13. Interview Tasks
+interview_task_id (Primary Key)
+student_id (Foreign Key to Students)
+task_description
+task_assigned_date
+task_due_date
+task_status (Completed, Pending)
+interview_round
+14. Placement Board
+placement_board_id (Primary Key)
+company_name
+job_role
+placement_date
+student_id (Foreign Key to Students)
+status (Selected, Rejected)
+15. Final Placement Round
+final_round_id (Primary Key)
+student_id (Foreign Key to Students)
+company_name
+interview_date
+result (Selected, Not Selected)
